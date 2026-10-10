@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Học Tiếng Trung - Flashcard & Lộ Trình Thông Minh</title>
+    <title>ChineseLearning - Học Tiếng Trung Thông Minh</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- FontAwesome Icons -->
@@ -40,11 +40,11 @@
     <header class="bg-white dark:bg-slate-800 border-b border-slate-200 dark:border-slate-700 px-4 sm:px-6 py-3 flex items-center justify-between shadow-sm">
         <div class="flex items-center space-x-2.5 cursor-pointer" onclick="app.goLobby()">
             <div class="w-9 h-9 rounded-xl bg-indigo-600 flex items-center justify-center text-white font-bold text-lg shadow-md">
-                中
+                学
             </div>
             <div>
-                <h1 class="font-bold text-base sm:text-lg leading-tight">Chinese Master</h1>
-                <p class="text-[10px] sm:text-xs text-slate-500 dark:text-slate-400">Học từ vựng & Ngữ pháp thông minh</p>
+                <h1 class="font-bold text-base sm:text-lg leading-tight">ChineseLearning</h1>
+                <p class="text-[10px] sm:text-xs text-slate-500 dark:text-slate-400">Học từ vựng & Ngữ pháp dễ dàng</p>
             </div>
         </div>
         <div class="flex items-center space-x-2 sm:space-x-4">
@@ -64,8 +64,8 @@
         <!-- ================= LOBBY VIEW ================= -->
         <div id="view-lobby" class="flex-1 flex flex-col">
             <div class="mb-6">
-                <h2 class="text-xl sm:text-2xl font-bold mb-1">Chọn Bài Học</h2>
-                <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400">Theo dõi tiến độ hoàn thành bài học và tiếp tục lộ trình của bạn.</p>
+                <h2 class="text-xl sm:text-2xl font-bold mb-1">Danh Sách Bài Học</h2>
+                <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400">Chọn bài học để bắt đầu hành trình chinh phục tiếng Trung của bạn.</p>
             </div>
             
             <div id="lessons-grid" class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
@@ -127,7 +127,7 @@
                         <button onclick="app.filterCards('unlearned')" id="filter-unlearned" class="px-2.5 py-1 rounded-lg text-xs font-semibold bg-slate-200 dark:bg-slate-700 text-slate-600 dark:text-slate-300">Chưa thuộc</button>
                         <button onclick="app.filterCards('learned')" id="filter-learned" class="px-2.5 py-1 rounded-lg text-xs font-semibold bg-slate-200 dark:bg-slate-700 text-slate-600 dark:text-slate-300">Đã thuộc</button>
                     </div>
-                    <div class="text-xs font-medium text-slate-500">Thẻ <span id="fc-current">1</span> / <span id="fc-total">8</span></div>
+                    <div class="text-xs font-medium text-slate-500">Thẻ <span id="fc-current">1</span> / <span id="fc-total">19</span></div>
                 </div>
 
                 <!-- Flashcard 3D Card -->
@@ -140,8 +140,8 @@
                                 <button onclick="event.stopPropagation(); app.speakText(app.getCurrentCard().hanzi);" class="absolute top-4 right-4 w-9 h-9 rounded-full bg-slate-100 dark:bg-slate-700 flex items-center justify-center hover:scale-110 transition text-indigo-600 dark:text-indigo-400">
                                     <i class="fa-solid fa-volume-high text-xs"></i>
                                 </button>
-                                <h2 id="card-hanzi" class="font-chinese text-4xl sm:text-5xl font-bold mb-2 tracking-wide text-slate-800 dark:text-slate-100">办公楼</h2>
-                                <p id="card-pinyin" class="text-lg sm:text-xl text-indigo-600 dark:text-indigo-400 font-medium mb-1">bàngōnglóu</p>
+                                <h2 id="card-hanzi" class="font-chinese text-4xl sm:text-5xl font-bold mb-2 tracking-wide text-slate-800 dark:text-slate-100">老师</h2>
+                                <p id="card-pinyin" class="text-lg sm:text-xl text-indigo-600 dark:text-indigo-400 font-medium mb-1">lǎoshī</p>
                                 <p class="text-[11px] text-slate-400 mt-4"><i class="fa-solid fa-rotate mr-1"></i> Bấm thẻ để lật xem nghĩa & ví dụ</p>
                             </div>
                             <!-- Mặt sau -->
@@ -154,12 +154,12 @@
                                 </div>
                                 
                                 <div class="text-center my-auto w-full">
-                                    <h3 id="card-meaning" class="text-xl sm:text-2xl font-bold mb-3 text-slate-800 dark:text-slate-100">Tòa nhà văn phòng</h3>
+                                    <h3 id="card-meaning" class="text-xl sm:text-2xl font-bold mb-3 text-slate-800 dark:text-slate-100">thầy giáo, cô giáo, giáo viên</h3>
                                     <div class="bg-white dark:bg-slate-900/60 rounded-2xl p-3 text-left border border-slate-200 dark:border-slate-700/60 shadow-sm">
-                                        <p class="text-[10px] text-indigo-600 dark:text-indigo-400 font-semibold mb-0.5">Ví dụ thực tế:</p>
-                                        <p id="card-ex-hanzi" class="font-chinese text-base font-bold text-slate-800 dark:text-slate-100">我在办公楼。</p>
-                                        <p id="card-ex-pinyin" class="text-[11px] text-indigo-600 dark:text-indigo-400 font-medium">Wǒ zài bàngōnglóu.</p>
-                                        <p id="card-ex-meaning" class="text-[11px] text-slate-500 dark:text-slate-400 italic">Tôi ở tòa nhà văn phòng.</p>
+                                        <p class="text-[10px] text-indigo-600 dark:text-indigo-400 font-semibold mb-0.5">Ví dụ mẫu:</p>
+                                        <p id="card-ex-hanzi" class="font-chinese text-base font-bold text-slate-800 dark:text-slate-100">我是老师。</p>
+                                        <p id="card-ex-pinyin" class="text-[11px] text-indigo-600 dark:text-indigo-400 font-medium">Wǒ shì lǎoshī.</p>
+                                        <p id="card-ex-meaning" class="text-[11px] text-slate-500 dark:text-slate-400 italic">Tôi là giáo viên.</p>
                                     </div>
                                 </div>
                                 <p class="text-[11px] text-slate-400"><i class="fa-solid fa-rotate mr-1"></i> Bấm để lật lại mặt trước</p>
@@ -193,7 +193,7 @@
                     <div class="bg-white dark:bg-slate-800 rounded-3xl p-5 sm:p-8 border border-slate-200 dark:border-slate-700 shadow-sm">
                         <div class="flex justify-between items-center mb-4">
                             <span class="text-[11px] font-semibold px-2.5 py-0.5 rounded-full bg-indigo-50 dark:bg-indigo-900/40 text-indigo-600 dark:text-indigo-400">Kiểm tra từ vựng</span>
-                            <span id="quiz-counter" class="text-xs font-medium text-slate-500">Câu 1/8</span>
+                            <span id="quiz-counter" class="text-xs font-medium text-slate-500">Câu 1/19</span>
                         </div>
                         <h4 id="quiz-question" class="text-lg sm:text-xl font-bold mb-5 text-center">Đâu là từ mang nghĩa "..."?</h4>
                         <div id="quiz-options" class="grid grid-cols-1 sm:grid-cols-3 gap-3">
@@ -218,16 +218,16 @@
                     <div class="bg-white dark:bg-slate-800 rounded-3xl p-5 sm:p-7 border border-slate-200 dark:border-slate-700 shadow-sm w-full text-center">
                         <div class="flex justify-between items-center mb-3">
                             <span class="text-[10px] font-semibold px-2.5 py-0.5 rounded-full bg-indigo-50 dark:bg-indigo-900/40 text-indigo-600 dark:text-indigo-400">Tập Viết Hán Tự</span>
-                            <span id="hw-vocab-counter" class="text-xs font-medium text-slate-500">Từ 1/8</span>
+                            <span id="hw-vocab-counter" class="text-xs font-medium text-slate-500">Từ 1/19</span>
                         </div>
                         
-                        <h4 class="text-lg font-bold mb-0.5">Tập viết chữ: <span id="hw-target-hanzi" class="font-chinese text-2xl text-indigo-600 dark:text-indigo-400">在</span></h4>
-                        <p id="hw-target-pinyin" class="text-xs text-slate-400 mb-5">Pinyin: zài - Nghĩa: Ở / tại</p>
+                        <h4 class="text-lg font-bold mb-0.5">Tập viết chữ: <span id="hw-target-hanzi" class="font-chinese text-2xl text-indigo-600 dark:text-indigo-400">老师</span></h4>
+                        <p id="hw-target-pinyin" class="text-xs text-slate-400 mb-5">Pinyin: lǎoshī - Nghĩa: thầy giáo, cô giáo</p>
 
                         <!-- Main Canvas Drawing Area -->
                         <div class="relative w-64 h-64 sm:w-72 sm:h-72 mx-auto mb-5 border-2 border-indigo-200 dark:border-slate-700 rounded-2xl bg-slate-50 dark:bg-slate-900 overflow-hidden shadow-inner flex items-center justify-center">
                             <!-- Faded ghost character template -->
-                            <span id="hw-watermark" class="absolute font-chinese font-bold text-slate-300 dark:text-slate-700 select-none pointer-events-none opacity-40 leading-none tracking-normal">在</span>
+                            <span id="hw-watermark" class="absolute font-chinese font-bold text-slate-300 dark:text-slate-700 select-none pointer-events-none opacity-40 leading-none tracking-normal">老师</span>
                             <canvas id="hw-canvas" width="288" height="288" class="absolute inset-0 cursor-crosshair z-10"></canvas>
                         </div>
 
@@ -321,7 +321,7 @@
                 <div class="flex-1 max-w-2xl mx-auto w-full flex flex-col justify-center">
                     <div class="bg-white dark:bg-slate-800 rounded-3xl p-4 sm:p-6 border border-slate-200 dark:border-slate-700 shadow-sm text-center">
                         <span class="text-[10px] font-semibold px-2.5 py-0.5 rounded-full bg-indigo-50 dark:bg-indigo-900/40 text-indigo-600 dark:text-indigo-400 inline-block mb-2">Ghép câu Tổng thể</span>
-                        <p id="sb-hint" class="text-xs sm:text-sm text-slate-500 mb-4 font-medium">Gợi ý: Tôi ở phía nam của tòa nhà văn phòng.</p>
+                        <p id="sb-hint" class="text-xs sm:text-sm text-slate-500 mb-4 font-medium">Gợi ý: Tôi tên là Tạ Danh.</p>
                         
                         <!-- Drop Zone -->
                         <div id="sb-target-zone" class="min-h-[75px] bg-slate-100 dark:bg-slate-900 border-2 border-dashed border-slate-300 dark:border-slate-700 rounded-2xl p-2.5 flex flex-wrap items-center justify-center gap-2 mb-4 transition">
@@ -378,124 +378,129 @@
         const lessonsData = [
             {
                 id: 'lesson-1',
-                title: 'Bài 1: Vị trí & Địa điểm trường học',
-                description: 'Học từ vựng về các tòa nhà trong khuôn viên trường, phương hướng và cấu trúc câu chỉ vị trí.',
+                title: 'Bài 1: 你好 (Xin chào)',
+                description: 'Học các từ vựng chào hỏi cơ bản, xưng hô, hỏi tên, quốc tịch và cấu trúc câu chữ "是".',
                 vocabularies: [
-                    { hanzi: '办公楼', pinyin: 'bàngōnglóu', meaning: 'Tòa nhà văn phòng', example: { hanzi: '我在办公楼。', pinyin: 'Wǒ zài bàngōnglóu.', meaning: 'Tôi ở tòa nhà văn phòng.' } },
-                    { hanzi: '图书馆', pinyin: 'túshūguǎn', meaning: 'Thư viện', example: { hanzi: '王老师在图书馆。', pinyin: 'Wáng lǎoshī zài túshūguǎn.', meaning: 'Thầy Vương ở thư viện.' } },
-                    { hanzi: '宿舍', pinyin: 'sùshè', meaning: 'Ký túc xá', example: { hanzi: '这是留学生宿舍。', pinyin: 'Zhè shì liúxuéshēng sùshè.', meaning: 'Đây là ký túc xá lưu học sinh.' } },
-                    { hanzi: '留学生', pinyin: 'liúxuéshēng', meaning: 'Lưu học sinh', example: { hanzi: '我是留学生。', pinyin: 'Wǒ shì liúxuéshēng.', meaning: 'Tôi là lưu học sinh.' } },
-                    { hanzi: '南边', pinyin: 'nánbian', meaning: 'Phía nam', example: { hanzi: '宿舍在南边。', pinyin: 'Sùshè zài nánbian.', meaning: 'Ký túc xá ở phía nam.' } },
-                    { hanzi: '后边', pinyin: 'hòubian', meaning: 'Phía sau', example: { hanzi: '图书馆在后边。', pinyin: 'Túshūguǎn zài hòubian.', meaning: 'Thư viện ở phía sau.' } },
-                    { hanzi: '哪儿', pinyin: 'nǎr', meaning: 'Ở đâu', example: { hanzi: '你在哪儿？', pinyin: 'Nǐ zài nǎr?', meaning: 'Bạn ở đâu?' } },
-                    { hanzi: '在', pinyin: 'zài', meaning: 'Ở / tại', example: { hanzi: '他在家。', pinyin: 'Tā zài jiā.', meaning: 'Anh ấy ở nhà.' } }
+                    { hanzi: '老师', pinyin: 'lǎoshī', meaning: 'thầy giáo, cô giáo, giáo viên', example: { hanzi: '我是老师。', pinyin: 'Wǒ shì lǎoshī.', meaning: 'Tôi là giáo viên.' } },
+                    { hanzi: '您', pinyin: 'nín', meaning: 'anh, chị, ông, bà, ngài (kính trọng)', example: { hanzi: '您好！', pinyin: 'Nín hǎo!', meaning: 'Chào ông/bà!' } },
+                    { hanzi: '好', pinyin: 'hǎo', meaning: 'tốt, đẹp, khỏe', example: { hanzi: '你好！', pinyin: 'Nǐ hǎo!', meaning: 'Chào bạn!' } },
+                    { hanzi: '你', pinyin: 'nǐ', meaning: 'bạn, anh, chị, ông, bà', example: { hanzi: '你是哪国人？', pinyin: 'Nǐ shì nǎ guó rén?', meaning: 'Bạn là người nước nào?' } },
+                    { hanzi: '叫', pinyin: 'jiào', meaning: 'gọi là, tên là', example: { hanzi: '我叫李白。', pinyin: 'Wǒ jiào Lǐ Bái.', meaning: 'Tôi tên là Lý Bạch.' } },
+                    { hanzi: '什么', pinyin: 'shénme', meaning: 'gì, cái gì', example: { hanzi: '你叫什么名字？', pinyin: 'Nǐ jiào shénme míngzi?', meaning: 'Bạn tên là gì?' } },
+                    { hanzi: '名字', pinyin: 'míngzi', meaning: 'tên', example: { hanzi: '我的名字叫李白。', pinyin: 'Wǒ de míngzi jiào Lǐ Bái.', meaning: 'Tên của tôi là Lý Bạch.' } },
+                    { hanzi: '我', pinyin: 'wǒ', meaning: 'tôi, ta, tao', example: { hanzi: '我是法国人。', pinyin: 'Wǒ shì Fǎguó rén.', meaning: 'Tôi là người Pháp.' } },
+                    { hanzi: '是', pinyin: 'shì', meaning: 'là, thì', example: { hanzi: '我是老师。', pinyin: 'Wǒ shì lǎoshī.', meaning: 'Tôi là giáo viên.' } },
+                    { hanzi: '哪', pinyin: 'nǎ', meaning: 'nào', example: { hanzi: '你是哪国人？', pinyin: 'Nǐ shì nǎ guó rén?', meaning: 'Bạn là người nước nào?' } },
+                    { hanzi: '国', pinyin: 'guó', meaning: 'nước, đất nước, quốc gia', example: { hanzi: '中国', pinyin: 'Zhōngguó', meaning: 'Trung Quốc' } },
+                    { hanzi: '人', pinyin: 'rén', meaning: 'người', example: { hanzi: '法国人', pinyin: 'Fǎguó rén', meaning: 'Người Pháp' } },
+                    { hanzi: '请', pinyin: 'qǐng', meaning: 'mời', example: { hanzi: '请坐！', pinyin: 'Qǐng zuò!', meaning: 'Mời ngồi!' } },
+                    { hanzi: '坐', pinyin: 'zuò', meaning: 'ngồi', example: { hanzi: '请坐！', pinyin: 'Qǐng zuò!', meaning: 'Mời ngồi!' } },
+                    { hanzi: '谢谢', pinyin: 'xièxie', meaning: 'cảm ơn', example: { hanzi: '谢谢你！', pinyin: 'Xièxie nǐ!', meaning: 'Cảm ơn bạn!' } },
+                    { hanzi: '不用谢', pinyin: 'búyòng xiè', meaning: 'không có chi, không cần cảm ơn', example: { hanzi: '不用谢！', pinyin: 'Búyòng xiè!', meaning: 'Không có chi!' } },
+                    { hanzi: '不用', pinyin: 'búyòng', meaning: 'không cần', example: { hanzi: '不用客气。', pinyin: 'Búyòng kèqi.', meaning: 'Không cần khách khí.' } },
+                    { hanzi: '李白', pinyin: 'Lǐ Bái', meaning: 'Lý Bạch (tên người)', example: { hanzi: '我叫李白。', pinyin: 'Wǒ jiào Lǐ Bái.', meaning: 'Tôi tên là Lý Bạch.' } },
+                    { hanzi: '法国', pinyin: 'Fǎguó', meaning: 'Nước Pháp', example: { hanzi: '我是法国人。', pinyin: 'Wǒ shì Fǎguó rén.', meaning: 'Tôi là người Pháp.' } }
                 ],
                 grammar: {
-                    title: 'Cấu trúc diễn đạt vị trí với "在" (zài) và Phương hướng',
+                    title: 'Điểm Ngữ Pháp Bài 1',
                     points: [
                         { 
-                            rule: 'Chủ ngữ + 在 + Địa điểm / Phương hướng', 
-                            desc: 'Dùng để xác định một đối tượng (người/vật) đang ở vị trí hoặc vị trí phương hướng nào.',
-                            example: '我在办公楼的南边。',
-                            pinyin: 'Wǒ zài bàngōnglóu de nánbian.',
-                            meaning: 'Tôi ở phía nam của tòa nhà văn phòng.',
+                            rule: '1. Trật tự từ ngữ trong câu tiếng Hán (Chủ ngữ + Vị ngữ + Tân ngữ)', 
+                            desc: 'Các thành phần trong câu tiếng Hán thường được sắp xếp theo thứ tự Chủ ngữ ➔ Vị ngữ ➔ Tân ngữ (giống tiếng Việt).',
+                            example: '我叫李白。 / 我是法国人。',
+                            pinyin: 'Wǒ jiào Lǐ Bái. / Wǒ shì Fǎguó rén.',
+                            meaning: 'Tôi tên là Lý Bạch. / Tôi là người Pháp.',
                             breakdown: [
                                 { word: '我 (Wǒ)', role: 'Chủ ngữ (Tôi)' },
-                                { word: '在 (zài)', role: 'Động từ (Ở/tại)' },
-                                { word: '办公楼的南边', role: 'Cụm địa điểm (Phía nam tòa văn phòng)' }
+                                { word: '叫 / 是', role: 'Vị ngữ / Động từ' },
+                                { word: '李白 / 法国人', role: 'Tân ngữ' }
                             ]
                         },
                         { 
-                            rule: 'Hỏi vị trí: Chủ ngữ + 在哪儿？', 
-                            desc: 'Dùng đại từ nghi vấn "哪儿" (nǎr) đặt cuối câu để hỏi ai/cái gì đang ở đâu.',
-                            example: '米雪在哪儿？',
-                            pinyin: 'Mǐxuě zài nǎr?',
-                            meaning: 'Michelle ở đâu thế?',
+                            rule: '2. Đại từ nghi vấn "什么" (gì) và "哪" (nào)', 
+                            desc: 'Khi tạo thành câu hỏi, trật tự từ giữ nguyên như câu trần thuật, chỉ cần thay bộ phận cần hỏi bằng đại từ nghi vấn tương ứng.',
+                            example: '你叫什么名字？ / 你是哪国人？',
+                            pinyin: 'Nǐ jiào shénme míngzi? / Nǐ shì nǎ guó rén?',
+                            meaning: 'Bạn tên là gì? / Bạn là người nước nào?',
                             breakdown: [
-                                { word: '米雪 (Mǐxuě)', role: 'Chủ ngữ (Michelle)' },
-                                { word: '在 (zài)', role: 'Ở' },
-                                { word: '哪儿 (nǎr)', role: 'Đại từ hỏi (Đâu)' }
+                                { word: '什么 (shénme)', role: 'Hỏi tên / sự vật' },
+                                { word: '哪 (nǎ)', role: 'Hỏi lựa chọn / quốc gia' }
                             ]
                         },
                         { 
-                            rule: 'Thể phủ định: Chủ ngữ + 不在 + Địa điểm', 
-                            desc: 'Thêm "不" (bù - đọc biến điệu thành bú khi đứng trước zài) trước "在" để diễn tả không ở đâu.',
-                            example: '王老师不在图书馆。',
-                            pinyin: 'Wáng lǎoshī bú zài túshūguǎn.',
-                            meaning: 'Cô Vương không ở thư viện.',
+                            rule: '3. Câu chữ "是" (shì)', 
+                            desc: 'Câu chữ "是" do động từ "是" nối hai thành phần trước và sau có liên quan với nhau, biểu thị ý khẳng định, phán đoán.',
+                            example: '我是法国人。 / 我是老师。',
+                            pinyin: 'Wǒ shì Fǎguó rén. / Wǒ shì lǎoshī.',
+                            meaning: 'Tôi là người Pháp. / Tôi là giáo viên.',
                             breakdown: [
-                                { word: '王老师', role: 'Chủ ngữ (Cô Vương)' },
-                                { word: '不在 (bú zài)', role: 'Phủ định (Không ở)' },
-                                { word: '图书馆', role: 'Địa điểm (Thư viện)' }
+                                { word: '我是...', role: 'Tôi là...' }
                             ]
                         }
                     ],
                     exercises: [
                         { 
-                            q: '王老师在 ______。', 
-                            pinyin: 'Wáng lǎoshī zài ______.',
+                            q: '你是哪国人？ ➔ Đáp án phù hợp là:', 
+                            pinyin: 'Nǐ shì nǎ guó rén?',
                             options: [
-                                { hanzi: '办公楼', pinyin: 'bàngōnglóu' },
-                                { hanzi: '图书馆', pinyin: 'túshūguǎn' },
-                                { hanzi: '宿舍', pinyin: 'sùshè' }
+                                { hanzi: '我是法国人。', pinyin: 'Wǒ shì Fǎguó rén.' },
+                                { hanzi: '我是老师。', pinyin: 'Wǒ shì lǎoshī.' },
+                                { hanzi: '我是李白。', pinyin: 'Wǒ shì Lǐ Bái.' }
                             ], 
-                            answer: '办公楼', 
-                            exp: 'Cần chọn từ "办公楼" (bàngōnglóu) nghĩa là tòa nhà văn phòng.' 
+                            answer: '我是法国人。', 
+                            exp: 'Câu hỏi hỏi về quốc tịch "哪国人" nên trả lời là "我是法国人" (Tôi là người Pháp).' 
                         },
                         { 
-                            q: '留学生宿舍楼在图书馆 ______。', 
-                            pinyin: 'Liúxuéshēng sùshèlóu zài túshūguǎn ______.',
+                            q: 'Điền từ thích hợp: 你叫 ______ 名字？', 
+                            pinyin: 'Nǐ jiào ______ míngzi?',
                             options: [
-                                { hanzi: '后边', pinyin: 'hòubian' },
-                                { hanzi: '南边', pinyin: 'nánbian' },
-                                { hanzi: '哪儿', pinyin: 'nǎr' }
+                                { hanzi: '什么', pinyin: 'shénme' },
+                                { hanzi: '哪', pinyin: 'nǎ' },
+                                { hanzi: '是', pinyin: 'shì' }
                             ], 
-                            answer: '后边', 
-                            exp: '"后边" (hòubian) nghĩa là phía sau.' 
+                            answer: '什么', 
+                            exp: 'Dùng đại từ nghi vấn "什么" để hỏi tên: "你叫什么名字？"' 
                         },
                         { 
-                            q: '米雪 ______ 哪儿？', 
-                            pinyin: 'Mǐxuě ______ nǎr?',
+                            q: 'Dịch câu: "Tôi là giáo viên."', 
+                            pinyin: 'Wǒ shì lǎoshī.',
                             options: [
-                                { hanzi: '在', pinyin: 'zài' },
-                                { hanzi: '不', pinyin: 'bù' },
-                                { hanzi: '去', pinyin: 'qù' }
+                                { hanzi: '我是老师。', pinyin: 'Wǒ shì lǎoshī.' },
+                                { hanzi: '我叫老师。', pinyin: 'Wǒ jiào lǎoshī.' },
+                                { hanzi: '我是法国人。', pinyin: 'Wǒ shì Fǎguó rén.' }
                             ], 
-                            answer: '在', 
-                            exp: 'Dùng động từ "在" (zài) trong câu hỏi vị trí "...在哪儿?".' 
+                            answer: '我是老师。', 
+                            exp: 'Sử dụng cấu trúc câu chữ "是": Chủ ngữ (我) + 是 + Tân ngữ (老师).' 
                         }
                     ]
                 },
                 sentences: [
                     { 
-                        target: '我在办公楼的南边。', 
+                        target: '叫 我 谢名', 
                         blocks: [
                             { hanzi: '我', pinyin: 'wǒ' },
-                            { hanzi: '在', pinyin: 'zài' },
-                            { hanzi: '办公楼', pinyin: 'bàngōnglóu' },
-                            { hanzi: '的', pinyin: 'de' },
-                            { hanzi: '南边', pinyin: 'nánbian' }
+                            { hanzi: '叫', pinyin: 'jiào' },
+                            { hanzi: '谢名', pinyin: 'Xiè Míng' }
                         ], 
-                        hint: 'Tôi ở phía nam của tòa nhà văn phòng.' 
+                        hint: 'Sắp xếp lại câu: Tôi tên là Tạ Danh.' 
                     },
                     { 
-                        target: '王老师不在图书馆。', 
+                        target: '我 老师 是', 
                         blocks: [
-                            { hanzi: '王老师', pinyin: 'Wáng lǎoshī' },
-                            { hanzi: '不在', pinyin: 'bú zài' },
-                            { hanzi: '图书馆', pinyin: 'túshūguǎn' }
+                            { hanzi: '我', pinyin: 'wǒ' },
+                            { hanzi: '是', pinyin: 'shì' },
+                            { hanzi: '老师', pinyin: 'lǎoshī' }
                         ], 
-                        hint: 'Cô Vương không ở thư viện.' 
+                        hint: 'Sắp xếp lại câu: Tôi là giáo viên.' 
                     },
                     { 
-                        target: '留学生宿舍楼在图书馆后边。', 
+                        target: '你 哪国人 是', 
                         blocks: [
-                            { hanzi: '留学生宿舍楼', pinyin: 'liúxuéshēng sùshèlóu' },
-                            { hanzi: '在', pinyin: 'zài' },
-                            { hanzi: '图书馆', pinyin: 'túshūguǎn' },
-                            { hanzi: '后边', pinyin: 'hòubian' }
+                            { hanzi: '你', pinyin: 'nǐ' },
+                            { hanzi: '是', pinyin: 'shì' },
+                            { hanzi: '哪国人', pinyin: 'nǎ guó rén' }
                         ], 
-                        hint: 'Tòa ký túc xá lưu học sinh ở phía sau thư viện.' 
+                        hint: 'Sắp xếp lại câu hỏi: Bạn là người nước nào?' 
                     }
                 ]
             }
@@ -1174,7 +1179,7 @@
                 if (!sList || sList.length === 0) return;
                 
                 const s = sList[this.currentSBIndex];
-                document.getElementById('sb-hint').innerText = `Gợi ý nghĩa: ${s.hint}`;
+                document.getElementById('sb-hint').innerText = `${s.hint}`;
                 
                 this.selectedBlocks = [];
                 this.sourceBlocks = s.blocks.map(b => ({ ...b })).sort(() => Math.random() - 0.5);
@@ -1228,12 +1233,13 @@
                 this.sourceBlocks = [];
                 this.renderSentenceBuildZones();
                 
+                const targetStr = s.blocks.map(b => b.hanzi).join(' ');
                 const fb = document.getElementById('sb-feedback');
                 fb.classList.remove('hidden');
                 fb.className = "mt-3 p-3 rounded-2xl text-xs font-medium bg-amber-50 dark:bg-amber-900/40 text-amber-700 dark:text-amber-300 border border-amber-200 flex flex-col items-center gap-2";
                 fb.innerHTML = `
-                    <div><strong>Đáp án mẫu:</strong> ${s.target}</div>
-                    <button onclick="app.speakText('${s.target}')" class="px-3.5 py-1.5 rounded-xl bg-amber-600 text-white text-xs font-semibold hover:bg-amber-700 transition flex items-center gap-1.5">
+                    <div><strong>Đáp án mẫu:</strong> ${targetStr}</div>
+                    <button onclick="app.speakText('${targetStr}')" class="px-3.5 py-1.5 rounded-xl bg-amber-600 text-white text-xs font-semibold hover:bg-amber-700 transition flex items-center gap-1.5">
                         <i class="fa-solid fa-volume-high"></i> Đọc mẫu Shadowing
                     </button>
                 `;
@@ -1244,7 +1250,7 @@
                 const s = sList[this.currentSBIndex];
                 
                 const cleanUserStr = this.selectedBlocks.map(b => b.hanzi).join('').replace(/[\s。？，！]/g, '');
-                const cleanTargetStr = s.target.replace(/[\s。？，！]/g, '');
+                const cleanTargetStr = s.blocks.map(b => b.hanzi).join('').replace(/[\s。？，！]/g, '');
 
                 const fb = document.getElementById('sb-feedback');
                 fb.classList.remove('hidden');
@@ -1253,11 +1259,12 @@
                     fb.className = "mt-3 p-3 rounded-2xl text-xs font-medium bg-emerald-50 dark:bg-emerald-900/40 text-emerald-600 dark:text-emerald-400 border border-emerald-200 flex flex-col items-center gap-2";
                     
                     const isLastSentence = this.currentSBIndex >= sList.length - 1;
+                    const fullText = s.blocks.map(b => b.hanzi).join('');
 
                     fb.innerHTML = `
                         <div class="flex items-center gap-1.5"><i class="fa-solid fa-circle-check text-base"></i> <span>Ghép câu chính xác! Luyện Shadowing:</span></div>
                         <div class="flex flex-wrap items-center justify-center gap-2">
-                            <button onclick="app.speakText('${s.target}')" class="px-3 py-1.5 rounded-xl bg-emerald-600 text-white text-xs font-semibold flex items-center gap-1">
+                            <button onclick="app.speakText('${fullText}')" class="px-3 py-1.5 rounded-xl bg-emerald-600 text-white text-xs font-semibold flex items-center gap-1">
                                 <i class="fa-solid fa-volume-high"></i> Nghe & Đọc theo
                             </button>
                             ${isLastSentence ? `
