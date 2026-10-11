@@ -133,7 +133,6 @@
                     <i class="fa-solid fa-chevron-right text-[8px] text-slate-400"></i>
                     <div id="step-dot-6" class="flex items-center space-x-1 px-2 py-1 rounded-xl bg-slate-200 dark:bg-slate-700 text-slate-500 text-[10px] font-semibold cursor-pointer whitespace-nowrap" onclick="app.switchStep(6)"><i class="fa-solid fa-puzzle-piece"></i> <span>6. Ghép câu</span></div>
                     <i class="fa-solid fa-chevron-right text-[8px] text-slate-400"></i>
-                    <!-- Nút BƯỚC 7 MỚI -->
                     <div id="step-dot-7" class="flex items-center space-x-1 px-2 py-1 rounded-xl bg-slate-200 dark:bg-slate-700 text-slate-500 text-[10px] font-semibold cursor-pointer whitespace-nowrap" onclick="app.switchStep(7)"><i class="fa-solid fa-camera"></i> <span class="text-amber-500">7. Thực chiến</span></div>
                 </div>
             </div>
@@ -256,7 +255,7 @@
                 </div>
             </div>
 
-            <!-- STEP 5: MINI QUIZ (BÀI TẬP NGỮ PHÁP TIẾNG TRUNG) -->
+            <!-- STEP 5: MINI QUIZ -->
             <div id="step-content-5" class="lesson-step hidden flex-1 flex flex-col justify-between overflow-y-auto pb-4">
                 <div class="w-full max-w-2xl mx-auto flex flex-col my-auto py-4 shrink-0">
                     <div class="bg-white dark:bg-slate-800 rounded-3xl p-4 sm:p-6 border border-slate-200 dark:border-slate-700 shadow-sm flex flex-col">
@@ -308,7 +307,6 @@
                 <div class="w-full max-w-2xl mx-auto flex flex-col my-auto py-4 shrink-0">
                     <div class="bg-white dark:bg-slate-800 rounded-3xl p-5 sm:p-8 border border-slate-200 dark:border-slate-700 shadow-sm text-center relative overflow-hidden">
                         
-                        <!-- Hiệu ứng tia chớp nền cho ngầu -->
                         <div class="absolute -top-10 -right-10 text-amber-100 dark:text-slate-700/30 opacity-50 rotate-12 pointer-events-none">
                             <i class="fa-solid fa-bolt text-9xl"></i>
                         </div>
@@ -320,28 +318,23 @@
                             <h3 class="text-2xl font-black mb-2 text-transparent bg-clip-text bg-gradient-to-r from-amber-500 to-orange-600">Sát Hạch Giấy Mực</h3>
                             <p class="text-sm text-slate-500 dark:text-slate-400 mb-6 px-4">Đã đến lúc cất bàn phím đi! Hãy tự tay viết câu dưới đây ra giấy, sau đó dùng camera chụp lại để giám thị AI chấm điểm nét chữ thực tế của bạn nhé!</p>
                             
-                            <!-- Khung hiển thị câu cần viết -->
                             <div class="bg-slate-50 dark:bg-slate-900 p-5 rounded-2xl border-2 border-dashed border-amber-200 dark:border-slate-600 mb-6">
                                 <p class="text-[11px] font-bold uppercase tracking-wider text-slate-400 mb-2">ĐỀ BÀI YÊU CẦU VIẾT:</p>
                                 <p id="scan-target-text" class="font-chinese text-3xl font-bold text-slate-800 dark:text-slate-100 leading-relaxed"></p>
                             </div>
 
-                            <!-- Input ẩn để gọi Camera điện thoại (capture="environment" sẽ auto bật camera sau) -->
                             <input type="file" accept="image/*" capture="environment" id="camera-input" class="hidden" onchange="app.handleImageUpload(event)">
 
-                            <!-- Vùng hiển thị ảnh Preview sau khi chụp -->
                             <div id="preview-container" class="hidden mb-6 relative w-full max-w-sm mx-auto group">
                                 <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-2xl flex items-end justify-center pb-4 pointer-events-none">
                                     <span class="text-white text-xs font-bold shadow-sm">Ảnh bạn vừa chụp</span>
                                 </div>
                                 <img id="preview-img" src="" alt="Bản scan của bạn" class="w-full h-auto rounded-2xl border-4 border-slate-200 dark:border-slate-600 shadow-xl bg-white object-contain max-h-64">
-                                <!-- Nút chụp lại -->
                                 <button onclick="document.getElementById('camera-input').click()" class="absolute -top-3 -right-3 w-10 h-10 bg-rose-500 text-white rounded-full flex items-center justify-center hover:bg-rose-600 transition shadow-lg border-2 border-white" title="Chụp lại">
                                     <i class="fa-solid fa-rotate"></i>
                                 </button>
                             </div>
 
-                            <!-- Nhóm Nút Bấm -->
                             <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
                                 <button id="btn-open-camera" onclick="document.getElementById('camera-input').click()" class="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-slate-800 dark:bg-slate-700 text-white font-bold text-sm hover:scale-105 transition shadow-lg flex items-center justify-center gap-2">
                                     <i class="fa-solid fa-camera"></i> <span>Mở Camera Quét Chữ</span>
@@ -363,7 +356,7 @@
 
         </div>
 
-        <!-- ================= 5. VIEW TEST MODE (CHẾ ĐỘ THI TRẮC NGHIỆM ĐỘC LẬP - VĂN HÓA MỸ) ================= -->
+        <!-- ================= 5. VIEW TEST MODE ================= -->
         <div id="view-test-mode" class="hidden flex-1 flex flex-col min-h-0 h-full">
             <div class="flex items-center justify-between mb-4 shrink-0">
                 <div class="flex items-center space-x-2">
@@ -375,24 +368,17 @@
             </div>
             
             <div class="flex-1 flex flex-col md:flex-row gap-5 min-h-0">
-                <!-- Vùng Trái: Hiển thị câu hỏi và đáp án -->
                 <div class="flex-1 bg-white dark:bg-slate-800 rounded-3xl border border-slate-200 dark:border-slate-700 shadow-sm flex flex-col min-h-0 overflow-hidden relative">
-                    
                     <div class="shrink-0 p-5 sm:p-8 pb-0">
                         <h4 id="test-question-title" class="font-bold text-lg sm:text-xl text-slate-800 dark:text-slate-100 mb-2">Câu 1</h4>
                         <p id="test-question" class="text-base sm:text-lg text-slate-700 dark:text-slate-200 font-medium">Nội dung câu hỏi...</p>
-                        
                         <div class="relative flex py-4 items-center">
                             <div class="flex-grow border-t border-slate-200 dark:border-slate-700"></div>
                             <span class="flex-shrink-0 mx-4 text-slate-400 text-[11px] font-bold uppercase tracking-widest">Chọn một đáp án đúng</span>
                             <div class="flex-grow border-t border-slate-200 dark:border-slate-700"></div>
                         </div>
                     </div>
-
-                    <!-- Options list cuộn được -->
                     <div id="test-options" class="flex-1 overflow-y-auto custom-scrollbar px-5 sm:px-8 pb-2 flex flex-col gap-3"></div>
-                    
-                    <!-- Feedback box cố định phía dưới -->
                     <div class="shrink-0 px-5 sm:px-8 bg-white dark:bg-slate-800">
                         <div id="test-feedback" class="hidden p-4 rounded-2xl text-sm font-medium mb-2"></div>
                         <div class="flex justify-end mb-2">
@@ -400,25 +386,18 @@
                         </div>
                         <div id="test-explanation" class="hidden p-4 rounded-xl bg-amber-50 dark:bg-amber-900/30 border border-amber-200 text-sm text-amber-800 dark:text-amber-300 mb-2"></div>
                     </div>
-                    
-                    <!-- Navigation Bottom Left cố định -->
                     <div class="shrink-0 flex justify-between items-center px-5 sm:px-8 py-4 border-t border-slate-100 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 rounded-b-3xl">
                         <button onclick="app.prevTestQuestion()" class="px-5 py-2.5 rounded-xl bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600 text-slate-700 dark:text-slate-300 font-bold text-xs sm:text-sm transition hover:bg-slate-100 dark:hover:bg-slate-600 shadow-sm"><i class="fa-solid fa-arrow-left mr-1"></i> Câu trước</button>
                         <button onclick="app.nextTestQuestion()" class="px-6 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-xs sm:text-sm transition shadow-md">Câu tiếp <i class="fa-solid fa-arrow-right ml-1"></i></button>
                     </div>
                 </div>
 
-                <!-- Vùng Phải: Thanh điều hướng -->
                 <div class="w-full md:w-[320px] shrink-0 bg-white dark:bg-slate-800 rounded-3xl p-5 border border-slate-200 dark:border-slate-700 shadow-sm flex flex-col h-fit md:max-h-full">
                     <div class="flex justify-between items-center mb-4 pb-3 border-b border-slate-100 dark:border-slate-700 shrink-0">
                         <h3 class="font-bold text-base text-slate-800 dark:text-slate-100">Danh sách câu hỏi</h3>
                         <span id="test-counter-badge" class="px-3 py-1.5 rounded-lg bg-indigo-50 dark:bg-indigo-900/40 text-indigo-600 dark:text-indigo-400 text-xs font-bold border border-indigo-100 dark:border-indigo-800">1/60</span>
                     </div>
-                    
-                    <div id="test-question-grid" class="grid grid-cols-5 sm:grid-cols-8 md:grid-cols-5 gap-2.5 overflow-y-auto custom-scrollbar pr-1 mb-5 flex-1 min-h-[150px]">
-                        <!-- Buttons grid rendered via JS -->
-                    </div>
-                    
+                    <div id="test-question-grid" class="grid grid-cols-5 sm:grid-cols-8 md:grid-cols-5 gap-2.5 overflow-y-auto custom-scrollbar pr-1 mb-5 flex-1 min-h-[150px]"></div>
                     <button id="btn-submit-test" onclick="app.submitTest()" class="w-full shrink-0 py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm transition shadow-md flex items-center justify-center gap-2">
                         <i class="fa-solid fa-paper-plane"></i> Nộp bài kiểm tra
                     </button>
@@ -426,42 +405,33 @@
             </div>
         </div>
 
-        <!-- ================= MODE SELECTION MODAL ================= -->
+        <!-- ================= MODALS ================= -->
         <div id="mode-selection-modal" class="hidden fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4">
             <div class="bg-white dark:bg-slate-800 rounded-3xl p-6 sm:p-8 max-w-xl w-full text-center shadow-2xl border border-slate-200 dark:border-slate-700 transform transition-all">
                 <h3 class="text-2xl font-extrabold mb-2 text-slate-800 dark:text-slate-100">Chọn chế độ làm bài</h3>
                 <p class="text-sm text-slate-500 dark:text-slate-400 mb-6">Hãy chọn phương pháp phù hợp với mục tiêu của bạn.</p>
-                
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
                     <button onclick="app.confirmModeAndStart('practice')" class="flex flex-col items-center p-5 rounded-2xl border-2 border-slate-200 dark:border-slate-700 hover:border-indigo-500 hover:bg-indigo-50 dark:hover:bg-indigo-900/20 transition-all group text-left">
-                        <div class="w-14 h-14 bg-indigo-100 dark:bg-indigo-900/50 text-indigo-600 rounded-full flex items-center justify-center text-2xl mb-3 group-hover:scale-110 transition-transform">
-                            <i class="fa-solid fa-book-open-reader"></i>
-                        </div>
+                        <div class="w-14 h-14 bg-indigo-100 dark:bg-indigo-900/50 text-indigo-600 rounded-full flex items-center justify-center text-2xl mb-3 group-hover:scale-110 transition-transform"><i class="fa-solid fa-book-open-reader"></i></div>
                         <h4 class="font-bold text-lg text-slate-800 dark:text-slate-100 mb-1">Chế độ Ôn tập</h4>
-                        <p class="text-xs text-slate-500 dark:text-slate-400 text-center">Hiển thị ngay đáp án đúng/sai và xem giải thích chi tiết sau mỗi câu. Không thể sửa đáp án.</p>
+                        <p class="text-xs text-slate-500 dark:text-slate-400 text-center">Hiển thị ngay đáp án đúng/sai và xem giải thích chi tiết sau mỗi câu.</p>
                     </button>
-
                     <button onclick="app.confirmModeAndStart('exam')" class="flex flex-col items-center p-5 rounded-2xl border-2 border-slate-200 dark:border-slate-700 hover:border-rose-500 hover:bg-rose-50 dark:hover:bg-rose-900/20 transition-all group text-left">
-                        <div class="w-14 h-14 bg-rose-100 dark:bg-rose-900/50 text-rose-600 rounded-full flex items-center justify-center text-2xl mb-3 group-hover:scale-110 transition-transform">
-                            <i class="fa-solid fa-file-signature"></i>
-                        </div>
+                        <div class="w-14 h-14 bg-rose-100 dark:bg-rose-900/50 text-rose-600 rounded-full flex items-center justify-center text-2xl mb-3 group-hover:scale-110 transition-transform"><i class="fa-solid fa-file-signature"></i></div>
                         <h4 class="font-bold text-lg text-slate-800 dark:text-slate-100 mb-1">Chế độ Thi thử</h4>
-                        <p class="text-xs text-slate-500 dark:text-slate-400 text-center">Ẩn kết quả câu hỏi. Cho phép đổi đáp án tự do. Chỉ xem điểm và review sau khi Nộp bài.</p>
+                        <p class="text-xs text-slate-500 dark:text-slate-400 text-center">Ẩn kết quả câu hỏi. Cho phép đổi đáp án tự do. Chỉ xem điểm sau khi nộp.</p>
                     </button>
                 </div>
-                
                 <button onclick="document.getElementById('mode-selection-modal').classList.add('hidden')" class="w-full py-3 rounded-xl bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300 font-bold text-sm hover:bg-slate-200 transition">Hủy bỏ</button>
             </div>
         </div>
 
-        <!-- ================= SUCCESS MODAL (CLEAN - NO MEME) ================= -->
         <div id="completion-modal" class="hidden fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4">
             <div class="bg-white dark:bg-slate-800 rounded-3xl p-6 sm:p-8 max-w-md w-full text-center shadow-2xl border border-slate-200 dark:border-slate-700 transform transition-all">
                 <div class="w-16 h-16 bg-emerald-100 dark:bg-emerald-900/40 text-emerald-600 dark:text-emerald-400 rounded-full flex items-center justify-center mx-auto text-3xl mb-4 shadow-inner"><i class="fa-solid fa-trophy"></i></div>
                 <h3 class="text-2xl font-extrabold mb-1">Chúc mừng bạn!</h3>
                 <p id="completion-msg" class="text-slate-500 dark:text-slate-400 text-sm mb-4">Bạn đã hoàn thành nội dung này.</p>
                 <div id="completion-score" class="text-2xl font-black text-indigo-600 dark:text-indigo-400 mb-6 hidden bg-indigo-50 dark:bg-indigo-900/30 py-3 rounded-xl border border-indigo-100 dark:border-indigo-800"></div>
-                
                 <div class="flex flex-col gap-2">
                     <button id="btn-review-test" onclick="app.startReviewMode()" class="w-full py-3 rounded-xl bg-amber-100 hover:bg-amber-200 text-amber-700 dark:bg-amber-900/40 dark:text-amber-400 font-bold text-sm transition shadow-sm hidden"><i class="fa-solid fa-magnifying-glass mr-1"></i> Xem lại bài làm</button>
                     <div class="flex space-x-2">
@@ -472,12 +442,11 @@
             </div>
         </div>
 
-        <!-- ================= TIMER/POMODORO MODALS ================= -->
         <div id="countdown-modal" class="hidden fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
             <div class="bg-white dark:bg-slate-800 rounded-3xl p-6 sm:p-8 max-w-sm w-full text-center shadow-2xl border border-slate-200 dark:border-slate-700">
                 <div class="w-12 h-12 bg-indigo-100 dark:bg-indigo-900/40 text-indigo-600 dark:text-indigo-400 rounded-2xl flex items-center justify-center mx-auto text-xl mb-3"><i class="fa-solid fa-stopwatch"></i></div>
                 <h3 class="text-lg font-bold mb-1">Bấm Giờ Tốc Độ (Timer)</h3>
-                <p class="text-xs text-slate-500 mb-5">Chọn thời gian để bứt phá giới hạn hoàn thành bài học!</p>
+                <p class="text-xs text-slate-500 mb-5">Chọn thời gian để bứt phá giới hạn!</p>
                 <div class="grid grid-cols-3 gap-2 mb-4">
                     <button onclick="app.startCountdown(1)" class="py-2 rounded-xl bg-slate-100 dark:bg-slate-700 hover:bg-indigo-600 hover:text-white text-xs font-semibold transition">1 Phút</button>
                     <button onclick="app.startCountdown(3)" class="py-2 rounded-xl bg-slate-100 dark:bg-slate-700 hover:bg-indigo-600 hover:text-white text-xs font-semibold transition">3 Phút</button>
@@ -547,7 +516,6 @@
                 
                 this.progress = JSON.parse(localStorage.getItem('boxcument_app_progress')) || {};
                 
-                // Chinese variables
                 this.currentQuizIndex = 0;
                 this.currentHWIndex = 0;
                 this.currentGPIndex = 0;
@@ -555,13 +523,11 @@
                 this.selectedBlocks = [];
                 this.sourceBlocks = [];
                 
-                // Test Mode variables
                 this.testCurrentIndex = 0;
                 this.testUserAnswers = {};
                 this.testMode = 'practice';
                 this.isReviewMode = false;
 
-                // Sound state
                 this.soundEnabled = localStorage.getItem('boxcument_sound') !== 'false';
                 this.audioCtx = null;
 
@@ -711,7 +677,6 @@
                 this.initTestModeFlow();
             }
 
-            // GIAO DIỆN HỌC TIẾNG TRUNG (7 BƯỚC)
             initLessonFlow() {
                 this.hideAllViews(); document.getElementById('view-lesson-flow').classList.remove('hidden'); document.getElementById('lobby-btn').classList.remove('hidden');
                 this.cardIndex = 0; this.isFlipped = false; this.cardFilter = 'all'; this.currentQuizIndex = 0; this.currentHWIndex = 0; this.currentGPIndex = 0; this.currentSBIndex = 0;
@@ -765,7 +730,6 @@
                 }
             }
 
-            // ================== CÁC HÀM TIẾNG TRUNG BƯỚC 1 - BƯỚC 6 ================== //
             getFilteredCards() {
                 const dp = this.getDialogueProgress(this.currentDialogue.id);
                 if (this.cardFilter === 'learned') return this.currentDialogue.vocabularies.filter((_, idx) => dp.learnedCards.includes(idx));
@@ -881,7 +845,6 @@
                     this.playTone('correct'); 
                     fb.className = "mt-2 p-2.5 rounded-xl text-xs font-medium bg-emerald-50 text-emerald-600 border border-emerald-200"; 
                     fb.innerHTML = `<i class="fa-solid fa-circle-check mr-1"></i> Đạt yêu cầu! Tự động qua từ tiếp theo...`; 
-                    
                     this.markStepComplete(3);
 
                     setTimeout(() => {
@@ -894,7 +857,6 @@
                             this.switchStep(4);
                         }
                     }, 1000);
-
                 } else {
                     this.playTone('wrong'); 
                     fb.className = "mt-2 p-2.5 rounded-xl text-xs font-medium bg-rose-50 text-rose-600 border border-rose-200"; 
@@ -998,7 +960,7 @@
             }
             nextSentenceBuild() { this.currentSBIndex++; this.initSentenceBuild(); }
 
-            // ================== BƯỚC 7: XỬ LÝ ẢNH CAMERA ================== //
+            // ================== BƯỚC 7: XỬ LÝ ẢNH CAMERA & REAL AI ================== //
             initScanStep() {
                 const sentences = this.currentDialogue.sentences;
                 if (sentences && sentences.length > 0) {
@@ -1030,17 +992,14 @@
             async submitToAI() {
                 const btn = document.getElementById('btn-submit-ai');
                 
-                // Đổi nút sang trạng thái đang xử lý
                 btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> AI đang soi nét chữ...';
                 btn.classList.remove('from-indigo-600', 'to-purple-600', 'hover:from-indigo-700', 'hover:to-purple-700');
                 btn.classList.add('bg-slate-500', 'cursor-not-allowed');
                 
                 try {
-                    // Lấy ảnh (đã chuyển thành base64) và câu đề bài
                     const imageBase64 = document.getElementById('preview-img').src;
                     const targetText = document.getElementById('scan-target-text').innerText;
 
-                    // Gửi vào "Nhà bếp" (Backend /api/evaluate)
                     const response = await fetch('/api/evaluate', {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
@@ -1049,14 +1008,11 @@
 
                     if (!response.ok) throw new Error("Lỗi khi kết nối với máy chủ AI");
 
-                    // Nhận kết quả từ Nhà bếp
                     const result = await response.json();
                     
-                    // Hiệu ứng âm thanh tùy điểm số
                     if (result.score >= 50) this.playTone('correct');
                     else this.playTone('wrong');
 
-                    // Hiện kết quả
                     const bgTheme = result.score >= 80 ? "bg-gradient-to-r from-emerald-500 to-teal-500 text-white" : 
                                    (result.score >= 50 ? "bg-gradient-to-r from-amber-500 to-orange-500 text-white" : "bg-gradient-to-r from-rose-500 to-red-600 text-white");
 
@@ -1067,7 +1023,6 @@
                         bgTheme
                     );
                     
-                    // Đổi nút thành Đã hoàn thành
                     btn.innerHTML = '<i class="fa-solid fa-check"></i> Đã có kết quả';
                     btn.classList.remove('bg-slate-500', 'cursor-not-allowed');
                     btn.classList.add('bg-emerald-600');
@@ -1076,7 +1031,6 @@
                 } catch (error) {
                     console.error("Lỗi AI:", error);
                     alert("Giám thị AI đang bận hoặc đứt cáp mạng. Vui lòng thử lại!");
-                    // Khôi phục nút nếu lỗi
                     btn.innerHTML = '<i class="fa-solid fa-wand-magic-sparkles"></i> <span>Nhờ AI Chấm Điểm</span>';
                     btn.classList.remove('bg-slate-500', 'cursor-not-allowed');
                     btn.classList.add('from-indigo-600', 'to-purple-600', 'hover:from-indigo-700', 'hover:to-purple-700');
@@ -1093,8 +1047,6 @@
                 this.playTone('correct');
             }
 
-
-            // ================== GIAO DIỆN TEST ĐỘC LẬP (VĂN HÓA MỸ) ================== //
             initTestModeFlow() {
                 this.hideAllViews(); document.getElementById('view-test-mode').classList.remove('hidden'); document.getElementById('lobby-btn').classList.remove('hidden');
                 document.getElementById('test-mode-title').innerText = this.testMode === 'exam' ? "Chế độ Thi Thử" : "Chế độ Ôn Tập"; document.getElementById('test-lesson-title').innerText = this.currentDialogue.title;
@@ -1207,17 +1159,12 @@
                 this.startDialogue(this.currentDialogue.id);
             }
 
-            // ================== CÁC HÀM TIỆN ÍCH CHUNG (TIMER) ================== //
             showTimerAlert(title, desc, iconClass = "fa-stopwatch", iconBgClass = "bg-rose-100 dark:bg-rose-900/40 text-rose-600") {
                 document.getElementById('timer-alert-title').innerText = title;
                 document.getElementById('timer-alert-desc').innerText = desc;
-                
                 const iconContainer = document.getElementById('timer-alert-icon-container');
                 iconContainer.className = `w-20 h-20 rounded-full flex items-center justify-center mx-auto text-3xl mb-4 shadow-inner ${iconBgClass}`;
-                
-                const icon = document.getElementById('timer-alert-icon');
-                icon.className = `fa-solid ${iconClass}`;
-                
+                document.getElementById('timer-alert-icon').className = `fa-solid ${iconClass}`;
                 document.getElementById('timer-alert-modal').classList.remove('hidden');
                 this.playTone('wrong'); 
             }
