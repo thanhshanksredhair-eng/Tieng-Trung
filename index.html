@@ -149,8 +149,8 @@
                     <div class="text-xs font-medium text-slate-500">Thẻ <span id="fc-current">1</span> / <span id="fc-total">1</span></div>
                 </div>
 
-                <div class="flex-1 flex items-center justify-center py-2 min-h-[300px]">
-                    <div class="w-full max-w-lg h-80 sm:h-96 perspective-1000 cursor-pointer" onclick="app.flipCard()">
+                <div class="w-full max-w-2xl mx-auto flex flex-col my-auto py-4 shrink-0">
+                    <div class="w-full max-w-lg mx-auto h-80 sm:h-96 perspective-1000 cursor-pointer" onclick="app.flipCard()">
                         <div id="flashcard-inner" class="relative w-full h-full duration-500 transform-style-3d shadow-xl rounded-3xl">
                             <div class="absolute inset-0 w-full h-full bg-white dark:bg-slate-800 rounded-3xl p-6 flex flex-col items-center justify-center backface-hidden border border-slate-200 dark:border-slate-700">
                                 <div id="card-status-badge" class="absolute top-4 left-4 text-[11px] font-semibold px-2 py-0.5 rounded-lg flex items-center gap-1"></div>
@@ -194,15 +194,15 @@
             </div>
 
             <!-- STEP 2: QUIZ -->
-            <div id="step-content-2" class="lesson-step hidden flex-1 flex flex-col justify-between overflow-y-auto">
-                <div class="flex-1 max-w-2xl mx-auto w-full flex flex-col justify-center min-h-[300px]">
+            <div id="step-content-2" class="lesson-step hidden flex-1 flex flex-col justify-between overflow-y-auto pb-4">
+                <div class="w-full max-w-2xl mx-auto flex flex-col my-auto py-4 shrink-0">
                     <div class="bg-white dark:bg-slate-800 rounded-3xl p-5 sm:p-8 border border-slate-200 dark:border-slate-700 shadow-sm flex flex-col">
                         <div class="flex justify-between items-center mb-4 shrink-0">
                             <span class="text-[11px] font-semibold px-2.5 py-0.5 rounded-full bg-indigo-50 dark:bg-indigo-900/40 text-indigo-600 dark:text-indigo-400">Kiểm tra từ vựng</span>
                             <span id="quiz-counter" class="text-xs font-medium text-slate-500">Câu 1/1</span>
                         </div>
                         <h4 id="quiz-question" class="text-lg sm:text-xl font-bold mb-5 text-center shrink-0">Đâu là từ mang nghĩa "..."?</h4>
-                        <div id="quiz-options" class="grid grid-cols-1 sm:grid-cols-3 gap-3 flex-1 overflow-y-auto custom-scrollbar p-1"></div>
+                        <div id="quiz-options" class="grid grid-cols-1 sm:grid-cols-3 gap-3"></div>
                         <div id="quiz-feedback" class="mt-4 hidden p-3 rounded-2xl text-xs font-medium shrink-0"></div>
                     </div>
                 </div>
@@ -213,8 +213,8 @@
             </div>
 
             <!-- STEP 3: HANDWRITING -->
-            <div id="step-content-3" class="lesson-step hidden flex-1 flex flex-col justify-between overflow-y-auto">
-                <div class="flex-1 max-w-xl mx-auto w-full flex flex-col items-center justify-center min-h-[350px]">
+            <div id="step-content-3" class="lesson-step hidden flex-1 flex flex-col justify-between overflow-y-auto pb-4">
+                <div class="w-full max-w-xl mx-auto flex flex-col my-auto py-4 shrink-0">
                     <div class="bg-white dark:bg-slate-800 rounded-3xl p-5 sm:p-7 border border-slate-200 dark:border-slate-700 shadow-sm w-full text-center">
                         <div class="flex justify-between items-center mb-3">
                             <span class="text-[10px] font-semibold px-2.5 py-0.5 rounded-full bg-indigo-50 dark:bg-indigo-900/40 text-indigo-600 dark:text-indigo-400">Tập Viết Hán Tự</span>
@@ -244,8 +244,8 @@
             </div>
 
             <!-- STEP 4: GRAMMAR -->
-            <div id="step-content-4" class="lesson-step hidden flex-1 flex flex-col justify-between min-h-0">
-                <div class="flex-1 overflow-y-auto space-y-4 pr-2 custom-scrollbar">
+            <div id="step-content-4" class="lesson-step hidden flex-1 flex flex-col justify-between min-h-0 pb-4">
+                <div class="flex-1 overflow-y-auto space-y-4 pr-2 custom-scrollbar py-4">
                     <div class="bg-white dark:bg-slate-800 rounded-3xl p-4 sm:p-6 border border-slate-200 dark:border-slate-700 shadow-sm">
                         <h3 id="grammar-title" class="text-lg font-bold text-indigo-600 dark:text-indigo-400 mb-3 flex items-center"><i class="fa-solid fa-graduation-cap mr-2"></i> <span>Tiêu đề ngữ pháp</span></h3>
                         <div id="grammar-points" class="space-y-4"></div>
@@ -257,8 +257,8 @@
             </div>
 
             <!-- STEP 5: MINI QUIZ (BÀI TẬP NGỮ PHÁP TIẾNG TRUNG) -->
-            <div id="step-content-5" class="lesson-step hidden flex-1 flex flex-col justify-between overflow-y-auto">
-                <div class="flex-1 max-w-2xl mx-auto w-full flex flex-col justify-center min-h-[300px]">
+            <div id="step-content-5" class="lesson-step hidden flex-1 flex flex-col justify-between overflow-y-auto pb-4">
+                <div class="w-full max-w-2xl mx-auto flex flex-col my-auto py-4 shrink-0">
                     <div class="bg-white dark:bg-slate-800 rounded-3xl p-4 sm:p-6 border border-slate-200 dark:border-slate-700 shadow-sm flex flex-col">
                         <div class="flex justify-between items-center mb-3 shrink-0">
                             <span class="text-[11px] font-semibold px-2.5 py-0.5 rounded-full bg-indigo-50 dark:bg-indigo-900/40 text-indigo-600 dark:text-indigo-400">Thực hành Ngữ pháp</span>
@@ -268,7 +268,7 @@
                             <h4 id="gp-question" class="text-lg font-bold font-chinese mb-0.5">Đang tải câu hỏi...</h4>
                             <p id="gp-question-pinyin" class="text-xs text-indigo-600 dark:text-indigo-400 font-medium">pinyin</p>
                         </div>
-                        <div id="gp-options" class="grid grid-cols-1 sm:grid-cols-3 gap-2.5 mb-3 flex-1 overflow-y-auto custom-scrollbar p-1"></div>
+                        <div id="gp-options" class="grid grid-cols-1 sm:grid-cols-3 gap-2.5 mb-3"></div>
                         <div class="flex justify-end shrink-0">
                             <button onclick="app.showGrammarExplanation()" class="text-xs font-semibold text-indigo-600 dark:text-indigo-400 hover:underline"><i class="fa-solid fa-lightbulb mr-1"></i> Xem giải thích</button>
                         </div>
@@ -283,8 +283,8 @@
             </div>
 
             <!-- STEP 6: SENTENCE BUILDING -->
-            <div id="step-content-6" class="lesson-step hidden flex-1 flex flex-col justify-between overflow-y-auto">
-                <div class="flex-1 max-w-2xl mx-auto w-full flex flex-col justify-center min-h-[300px]">
+            <div id="step-content-6" class="lesson-step hidden flex-1 flex flex-col justify-between overflow-y-auto pb-4">
+                <div class="w-full max-w-2xl mx-auto flex flex-col my-auto py-4 shrink-0">
                     <div class="bg-white dark:bg-slate-800 rounded-3xl p-4 sm:p-6 border border-slate-200 dark:border-slate-700 shadow-sm text-center">
                         <span class="text-[10px] font-semibold px-2.5 py-0.5 rounded-full bg-indigo-50 dark:bg-indigo-900/40 text-indigo-600 dark:text-indigo-400 inline-block mb-2">Ghép câu Tổng thể</span>
                         <p id="sb-hint" class="text-xs sm:text-sm text-slate-500 mb-4 font-medium">Gợi ý...</p>
@@ -304,8 +304,8 @@
             </div>
 
             <!-- BƯỚC 7: SÁT HẠCH GIẤY MỰC (CAMERA SCAN) -->
-            <div id="step-content-7" class="lesson-step hidden flex-1 flex flex-col justify-between overflow-y-auto">
-                <div class="flex-1 max-w-2xl mx-auto w-full flex flex-col justify-center min-h-[400px]">
+            <div id="step-content-7" class="lesson-step hidden flex-1 flex flex-col justify-between overflow-y-auto pb-4">
+                <div class="w-full max-w-2xl mx-auto flex flex-col my-auto py-4 shrink-0">
                     <div class="bg-white dark:bg-slate-800 rounded-3xl p-5 sm:p-8 border border-slate-200 dark:border-slate-700 shadow-sm text-center relative overflow-hidden">
                         
                         <!-- Hiệu ứng tia chớp nền cho ngầu -->
@@ -334,7 +334,7 @@
                                 <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-2xl flex items-end justify-center pb-4 pointer-events-none">
                                     <span class="text-white text-xs font-bold shadow-sm">Ảnh bạn vừa chụp</span>
                                 </div>
-                                <img id="preview-img" src="" alt="Bản scan của bạn" class="w-full h-auto rounded-2xl border-4 border-white shadow-xl bg-white object-contain max-h-[300px]">
+                                <img id="preview-img" src="" alt="Bản scan của bạn" class="w-full h-auto rounded-2xl border-4 border-slate-200 dark:border-slate-600 shadow-xl bg-white object-contain max-h-64">
                                 <!-- Nút chụp lại -->
                                 <button onclick="document.getElementById('camera-input').click()" class="absolute -top-3 -right-3 w-10 h-10 bg-rose-500 text-white rounded-full flex items-center justify-center hover:bg-rose-600 transition shadow-lg border-2 border-white" title="Chụp lại">
                                     <i class="fa-solid fa-rotate"></i>
@@ -343,7 +343,7 @@
 
                             <!-- Nhóm Nút Bấm -->
                             <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
-                                <button id="btn-open-camera" onclick="document.getElementById('camera-input').click()" class="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-slate-800 dark:bg-white text-white dark:text-slate-800 font-bold text-sm hover:scale-105 transition shadow-lg flex items-center justify-center gap-2">
+                                <button id="btn-open-camera" onclick="document.getElementById('camera-input').click()" class="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-slate-800 dark:bg-slate-700 text-white font-bold text-sm hover:scale-105 transition shadow-lg flex items-center justify-center gap-2">
                                     <i class="fa-solid fa-camera"></i> <span>Mở Camera Quét Chữ</span>
                                 </button>
                                 
@@ -354,7 +354,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="pt-4 flex justify-center items-center shrink-0">
+                <div class="pt-4 flex justify-center items-center shrink-0 pb-6">
                     <button onclick="app.finishLessonFlow()" class="px-6 py-3 rounded-2xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm transition shadow-md flex items-center gap-2">
                         <span>Hoàn thành bài học</span> <i class="fa-solid fa-flag-checkered"></i>
                     </button>
@@ -454,7 +454,7 @@
             </div>
         </div>
 
-        <!-- ================= SUCCESS MODAL ================= -->
+        <!-- ================= SUCCESS MODAL (CLEAN - NO MEME) ================= -->
         <div id="completion-modal" class="hidden fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4">
             <div class="bg-white dark:bg-slate-800 rounded-3xl p-6 sm:p-8 max-w-md w-full text-center shadow-2xl border border-slate-200 dark:border-slate-700 transform transition-all">
                 <div class="w-16 h-16 bg-emerald-100 dark:bg-emerald-900/40 text-emerald-600 dark:text-emerald-400 rounded-full flex items-center justify-center mx-auto text-3xl mb-4 shadow-inner"><i class="fa-solid fa-trophy"></i></div>
@@ -711,7 +711,7 @@
                 this.initTestModeFlow();
             }
 
-            // GIAO DIỆN HỌC TIẾNG TRUNG (BÂY GIỜ LÀ 7 BƯỚC)
+            // GIAO DIỆN HỌC TIẾNG TRUNG (7 BƯỚC)
             initLessonFlow() {
                 this.hideAllViews(); document.getElementById('view-lesson-flow').classList.remove('hidden'); document.getElementById('lobby-btn').classList.remove('hidden');
                 this.cardIndex = 0; this.isFlipped = false; this.cardFilter = 'all'; this.currentQuizIndex = 0; this.currentHWIndex = 0; this.currentGPIndex = 0; this.currentSBIndex = 0;
@@ -742,7 +742,6 @@
                 const dp = this.getDialogueProgress(this.currentDialogue.id);
                 if (!dp.completedSteps.includes(stepNumber)) { dp.completedSteps.push(stepNumber); this.saveProgress(); }
                 
-                // NẾU LÀ BƯỚC 7 THÌ MỚI HIỆN POPUP CHÚC MỪNG HOÀN THÀNH BÀI HỌC
                 if (stepNumber === 7) {
                     this.playTone('correct');
                     document.getElementById('completion-score').classList.add('hidden');
@@ -875,7 +874,6 @@
                 if (targetPixels === 0) return;
                 const coverageScore = (userCoveredTarget / targetPixels) * 100; const penaltyRatio = userOutPixels / (targetPixels || 1);
 
-                // THUẬT TOÁN CHẤM ĐIỂM CHUẨN
                 const minCoverage = 35; 
                 const maxPenalty = 5.0; 
 
@@ -1000,7 +998,7 @@
             }
             nextSentenceBuild() { this.currentSBIndex++; this.initSentenceBuild(); }
 
-            // ================== BƯỚC 7: XỬ LÝ ẢNH CAMERA & FAKE AI ================== //
+            // ================== BƯỚC 7: XỬ LÝ ẢNH CAMERA ================== //
             initScanStep() {
                 const sentences = this.currentDialogue.sentences;
                 if (sentences && sentences.length > 0) {
@@ -1040,7 +1038,7 @@
                     this.playTone('correct');
                     this.showTimerAlert(
                         "KẾT QUẢ TỪ GIÁM THỊ AI", 
-                        "🎯 Điểm: 95/100\n\n💬 Lời phê:\nTuyệt vời! Chữ viết tay của bạn rất rõ ràng và form chữ rất cân đối. Đặc biệt chữ '手机' viết nét phẩy rất có hồn.\n\nNhỏ một chút: Nét ngang của chữ '的' bạn kéo dài thêm chút xíu nữa là đạt chuẩn Master luôn nhé! Tiếp tục phát huy!", 
+                        "🎯 Điểm: 95/100\n\n💬 Lời phê:\nTuyệt vời! Chữ viết tay của bạn rất rõ ràng và form chữ rất cân đối.\n\nTiếp tục phát huy nhé!", 
                         "fa-robot", 
                         "bg-gradient-to-r from-indigo-500 to-purple-600 text-white"
                     );
