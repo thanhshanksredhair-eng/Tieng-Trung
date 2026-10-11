@@ -1,6 +1,4 @@
-// File: api/evaluate.js (Bản CommonJS tương thích 100%)
 module.exports = async function handler(req, res) {
-    // 1. CẤU HÌNH CORS CHO PHÉP WEB KHÁC DÙNG CHUNG API
     res.setHeader('Access-Control-Allow-Credentials', true);
     res.setHeader('Access-Control-Allow-Origin', '*'); 
     res.setHeader('Access-Control-Allow-Methods', 'GET,OPTIONS,PATCH,DELETE,POST,PUT');
@@ -20,7 +18,7 @@ module.exports = async function handler(req, res) {
         const apiKey = process.env.GEMINI_API_KEY;
 
         if (!apiKey) {
-            throw new Error("Chưa cài đặt GEMINI_API_KEY trên Vercel");
+            return res.status(500).json({ error: "Chưa cài đặt GEMINI_API_KEY trên Vercel" });
         }
 
         const prompt = `Ngươi là một giám khảo chấm thi tiếng Trung cực kỳ tinh mắt.
@@ -35,7 +33,7 @@ module.exports = async function handler(req, res) {
 
         const base64Data = imageBase64.includes(',') ? imageBase64.split(',')[1] : imageBase64;
 
-        const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`, {
+        const apiResponse = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
@@ -49,19 +47,19 @@ module.exports = async function handler(req, res) {
             })
         });
 
-        const data = await response.json();
+        const data = await apiResponse.json();
         
         if (!data.candidates || !data.candidates[0].content) {
-            throw new Error("Phản hồi từ Google Gemini không hợp lệ");
+            return res.status(500).json({ error: "Phản hồi từ Google Gemini không hợp lệ", details: data });
         }
 
         const resultText = data.candidates[0].content.parts[0].text;
         const resultJSON = JSON.parse(resultText);
 
-        res.status(200).json(resultJSON);
+        return res.status(200).json(resultJSON);
 
     } catch (error) {
         console.error("Lỗi AI:", error);
-        res.status(500).json({ error: "Lỗi nội bộ khi chấm điểm", details: error.message });
+        return res.status(500).json({ error: "Lỗi nội bộ khi chấm điểm", details: error.message });
     }
 };
