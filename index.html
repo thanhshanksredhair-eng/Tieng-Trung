@@ -1027,26 +1027,60 @@
                 reader.readAsDataURL(file);
             }
 
-            submitToAI() {
+            async submitToAI() {
                 const btn = document.getElementById('btn-submit-ai');
                 
+                // Đổi nút sang trạng thái đang xử lý
                 btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> AI đang soi nét chữ...';
                 btn.classList.remove('from-indigo-600', 'to-purple-600', 'hover:from-indigo-700', 'hover:to-purple-700');
                 btn.classList.add('bg-slate-500', 'cursor-not-allowed');
                 
-                setTimeout(() => {
-                    this.playTone('correct');
+                try {
+                    // Lấy ảnh (đã chuyển thành base64) và câu đề bài
+                    const imageBase64 = document.getElementById('preview-img').src;
+                    const targetText = document.getElementById('scan-target-text').innerText;
+
+                    // Gửi vào "Nhà bếp" (Backend /api/evaluate)
+                    const response = await fetch('/api/evaluate', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ imageBase64, targetText })
+                    });
+
+                    if (!response.ok) throw new Error("Lỗi khi kết nối với máy chủ AI");
+
+                    // Nhận kết quả từ Nhà bếp
+                    const result = await response.json();
+                    
+                    // Hiệu ứng âm thanh tùy điểm số
+                    if (result.score >= 50) this.playTone('correct');
+                    else this.playTone('wrong');
+
+                    // Hiện kết quả
+                    const bgTheme = result.score >= 80 ? "bg-gradient-to-r from-emerald-500 to-teal-500 text-white" : 
+                                   (result.score >= 50 ? "bg-gradient-to-r from-amber-500 to-orange-500 text-white" : "bg-gradient-to-r from-rose-500 to-red-600 text-white");
+
                     this.showTimerAlert(
                         "KẾT QUẢ TỪ GIÁM THỊ AI", 
-                        "🎯 Điểm: 95/100\n\n💬 Lời phê:\nTuyệt vời! Chữ viết tay của bạn rất rõ ràng và form chữ rất cân đối.\n\nTiếp tục phát huy nhé!", 
+                        `🎯 Điểm: ${result.score}/100\n\n💬 Lời phê:\n${result.feedback}`, 
                         "fa-robot", 
-                        "bg-gradient-to-r from-indigo-500 to-purple-600 text-white"
+                        bgTheme
                     );
                     
+                    // Đổi nút thành Đã hoàn thành
                     btn.innerHTML = '<i class="fa-solid fa-check"></i> Đã có kết quả';
+                    btn.classList.remove('bg-slate-500', 'cursor-not-allowed');
                     btn.classList.add('bg-emerald-600');
                     this.markStepComplete(7);
-                }, 3000);
+
+                } catch (error) {
+                    console.error("Lỗi AI:", error);
+                    alert("Giám thị AI đang bận hoặc đứt cáp mạng. Vui lòng thử lại!");
+                    // Khôi phục nút nếu lỗi
+                    btn.innerHTML = '<i class="fa-solid fa-wand-magic-sparkles"></i> <span>Nhờ AI Chấm Điểm</span>';
+                    btn.classList.remove('bg-slate-500', 'cursor-not-allowed');
+                    btn.classList.add('from-indigo-600', 'to-purple-600', 'hover:from-indigo-700', 'hover:to-purple-700');
+                }
             }
 
             finishLessonFlow() {
