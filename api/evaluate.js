@@ -39,7 +39,7 @@ module.exports = async function handler(req, res) {
         const base64Data = imageBase64.includes(',') ? imageBase64.split(',')[1] : imageBase64;
 
         // Gọi Google Gemini API (dùng mô hình gemini-1.5-flash ổn định nhất)
-        const geminiRes = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`, {
+        const geminiRes = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
